@@ -1,79 +1,9 @@
 #include <iostream>
+// The next #include line below shows how to include functions defined 
+// in another file and tell this file that it may use functions them.
+#include "gene_synthesizer.h"
+#include "rna_translator.h"
 using namespace std;
-
-//////////////////////////////////////////////////////////////////////
-// To write a function in C++ you must tell the compiler what kind of
-//
-// data type will be returned by the function, in the case below it is
-//
-// of type "void". This is because it returns no data to line or object
-//
-// that invokes this function. You then contunue by writting the name
-//
-// of the function followed by open and closed parenthesis. In the 
-//
-// parenthsis you declare variables that are the parameters that a 
-//
-// function will accept at invocation. The body of the function is 
-//
-// written within the curly brackets {}.
-//
-// Example 1:
-//
-//      void foo(int bar){bar = bar + 10; cout << bar << endl;}
-//
-// Example 2:
-//      void foo(int bar) {
-//          bar = bar + 10;
-//          cout << bar << endl;
-//      }
-// Example 3:
-//      void foo(int bar)
-//      {
-//          bar = bar + 10;
-//          cout << bar << endl;
-//      }
-//
-// Like all preffesional level computation languages C++ does not care 
-//
-// about white space characters in your code. As such it is common practice
-//
-// to use this freedom of white space characters to make code readable and
-//
-// neat. I use the third approach in my code. The general idea behind it is
-//
-// each statement gets it's on line except when the declarations require a 
-//
-// lot of paramteters in which case it can be good to give each parameter 
-//
-// it's own indented line. This makes things easier to read.
-//
-// Example:
-//  foo(
-//      arg1, 
-//      arg2, 
-//      arg3, 
-//      arg4, 
-//      arg5, 
-//      argN, 
-//      argN+1, 
-//      ....
-//   );
-//
-
-//////////////////////////////////////////////////////////////////////////////
-// Important note you want to define anything you are going to be using before
-//
-// you invoke it in your code or the compiler will complain at you.
-//
-// This function will be used in function main().
-void synthGenes(int a, string *ptr)
-{
-    for (int i = 0; i < a; i++)
-    {
-        ptr[i] = "ACTG";
-    }
-}
 
 ///////////////////////////////////////////////////////////////////////////////
 // In C++ there is always a main() function that initiates all computation, it
@@ -83,6 +13,7 @@ void synthGenes(int a, string *ptr)
 // address used to initialize the computation procedure.
 int main()
 {
+    // Let the user know that the program has started.
     string stars = "************************************************";
     cout << stars << endl;
     cout << "Commencing operation" << endl;
@@ -113,9 +44,7 @@ int main()
     //
     //  As is this, except that this I belive makes a pointer array 
     //
-    //  where each pointer points to 
-    //
-    //  a value on the string array.
+    //  where each pointer points to a value on the string array.
     //
     //      string (*ptr_genes)[10] = &genes;
     ////////////////////////////////////////////////////////////////////
@@ -133,11 +62,30 @@ int main()
     // 
     // directly manipulate memory locations that hold variable definitions.
     synthGenes(10, ptr_genes);
+    /*
     cout << "Printing out some four character long DNA sequences" << endl;
     for (int i = 0; i < 10; i++)
     {
         // here we print out the values of this string array by accessing them in a loop.
         cout << "\t " << i << " : " << genes[i] << endl;
     }
+    */
+    string gene = "";
+    for (int i = 0; i < 10; i++)
+    {
+        gene = gene + genes[i];
+    }
+    cout << "\tGene synthesized : ["<< gene <<"]" << endl;
+    
+    
+    TAmine *amino;
+    amino = new TAmine();
+    string rna = amino->translate_Gene(gene);
+    
+    cout << "\tMRNA Transliterated : ["<< rna <<"]" << endl;
+    
+    // let the user know that the program has concluded
+    cout << "Operation Concluded" << endl;
+    cout << stars << endl;
     return 0;
 }
