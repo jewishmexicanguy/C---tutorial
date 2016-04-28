@@ -3,6 +3,7 @@
 // in another file and tell this file that it may use functions them.
 #include "gene_synthesizer.h"
 #include "rna_translator.h"
+#include "protien_translator.h"
 using namespace std;
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -83,6 +84,13 @@ int main()
     string rna = amino->translate_Gene(gene);
     
     cout << "\tMRNA Transliterated : ["<< rna <<"]" << endl;
+    
+    TProtien *protien;
+    protien = new TProtien();
+    string aminoSequence = protien->translate_RNA(rna);
+    
+    cout << "\t AMINO ACID SEQUENCE :" << endl;
+    cout << "\t" << aminoSequence << endl;
     
     // let the user know that the program has concluded
     cout << "Operation Concluded" << endl;

@@ -6,6 +6,7 @@
 //
 //
 
+#include <iostream>
 #include "protien_translator.h"
 
 using namespace std;
@@ -155,7 +156,7 @@ string TProtien::translate(string a)
             {
                 return "Leucine";
             }
-            else if ((pos3 == 'C')(pos3 == 'T'))
+            else if ((pos3 == 'C') or (pos3 == 'T'))
             {
                 return "Phenylalanine";
             }
@@ -189,5 +190,11 @@ string TProtien::translate_RNA(string rna)
     // now that we have converted the base paris to what will connect to them we invoke the private
     //
     // method of this class to translate it into a sequence of amino acids.
-    
+    string aminoSequence = "";
+    for (int i = 0; i < count; i = i + 3)
+    {
+        string codon = rna_mirror.substr(i, 3);
+        aminoSequence = aminoSequence + "--" + translate(codon);
+    }
+    return aminoSequence;
 }

@@ -1,4 +1,7 @@
 #ifndef TPROTIEN_H
+#define TPROTIEN_H
+#include <iostream>
+using namespace std;
 
 class TProtien
 {
@@ -11,6 +14,6 @@ class TProtien
     private:
     
         string translate(string a);
-}
+};
 
 #endif
