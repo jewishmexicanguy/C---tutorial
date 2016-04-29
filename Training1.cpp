@@ -29,7 +29,7 @@ int main()
     //
     //      are giving the variable.
     //
-    string genes[10];
+    string genes[10000];
     ///////////////////////////////////////////////////////////////////
     //  Here we are exploring pointer declariotion
     //
@@ -62,7 +62,7 @@ int main()
     // of C++ called computation by side effect. Using pointers we can 
     // 
     // directly manipulate memory locations that hold variable definitions.
-    synthGenes(10, ptr_genes);
+    synthGenes(10000, ptr_genes);
     /*
     cout << "Printing out some four character long DNA sequences" << endl;
     for (int i = 0; i < 10; i++)
@@ -72,7 +72,7 @@ int main()
     }
     */
     string gene = "";
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 10000; i++)
     {
         gene = gene + genes[i];
     }
