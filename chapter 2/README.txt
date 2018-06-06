@@ -1,5 +1,7 @@
-In this tutorial we will build some tools that will allow us to do some math.
-We will then use this math to simulate behaviours of bosons and fermions.
-Afterward we will examine the order in which computation happens and we will optimize our program.
+In this tutorial I will learn from these MIT courses
 
-We will explore multi paradigm programming and the important differences bettween how computation takes place.
+https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-s096-introduction-to-c-and-c-january-iap-2013/
+
+https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-s096-effective-programming-in-c-and-c-january-iap-2014/
+
+https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-088-introduction-to-c-memory-management-and-c-object-oriented-programming-january-iap-2010/
